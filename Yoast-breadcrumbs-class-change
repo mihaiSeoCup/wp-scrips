@@ -2,7 +2,11 @@
 /**
  * @package WPSEO\Frontend
  */
-
+/*
+*
+*  replace with tis content the content from plugins/wordpress-seo/frontend/class-breadcrumbs.php
+*
+*/
 /**
  * This class handles the Breadcrumbs generation and display
  */
