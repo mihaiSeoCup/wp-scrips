@@ -3,7 +3,7 @@
 
 /* get count for every propduct category*/
 function get_product_category_count_custom( $term_id ) {
-
+	$term_id = get_queried_object();
 	$product_visibility_terms  = wc_get_product_visibility_term_ids();
 	$product_visibility_not_in[] = $product_visibility_terms['outofstock'];
 
@@ -16,7 +16,7 @@ function get_product_category_count_custom( $term_id ) {
 			array(
 				'taxonomy' => 'product_cat',
 				'field'    => 'term_id',
-				'terms'    => $term_id,
+				'terms'    => $term_id->term_id,
 			),
 		    array(
 	      		'taxonomy' => 'product_visibility',
