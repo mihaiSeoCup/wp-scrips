@@ -87,3 +87,63 @@ function redirect_agency() {
 	exit;	
 
 }
+
+
+
+/*
+* Custom post type Agentii
+*/
+// Register Custom Post Type
+function agentie() {
+
+	$labels = array(
+		'name'                  => _x( 'Agentii', 'Post Type General Name', 'cazino' ),
+		'singular_name'         => _x( 'Agentie', 'Post Type Singular Name', 'cazino' ),
+		'menu_name'             => __( 'Agentii', 'cazino' ),
+		'name_admin_bar'        => __( 'Agentii', 'cazino' ),
+		'archives'              => __( 'Item Archives', 'cazino' ),
+		'attributes'            => __( 'Item Attributes', 'cazino' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'cazino' ),
+		'all_items'             => __( 'All Items', 'cazino' ),
+		'add_new_item'          => __( 'Add New Item', 'cazino' ),
+		'add_new'               => __( 'Add New', 'cazino' ),
+		'new_item'              => __( 'New Item', 'cazino' ),
+		'edit_item'             => __( 'Edit Item', 'cazino' ),
+		'update_item'           => __( 'Update Item', 'cazino' ),
+		'view_item'             => __( 'View Item', 'cazino' ),
+		'view_items'            => __( 'View Items', 'cazino' ),
+		'search_items'          => __( 'Search Item', 'cazino' ),
+		'not_found'             => __( 'Not found', 'cazino' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'cazino' ),
+		'featured_image'        => __( 'Featured Image', 'cazino' ),
+		'set_featured_image'    => __( 'Set featured image', 'cazino' ),
+		'remove_featured_image' => __( 'Remove featured image', 'cazino' ),
+		'use_featured_image'    => __( 'Use as featured image', 'cazino' ),
+		'insert_into_item'      => __( 'Insert into item', 'cazino' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'cazino' ),
+		'items_list'            => __( 'Items list', 'cazino' ),
+		'items_list_navigation' => __( 'Items list navigation', 'cazino' ),
+		'filter_items_list'     => __( 'Filter items list', 'cazino' ),
+	);
+	$args = array(
+		'label'                 => __( 'Agentie', 'cazino' ),
+		'description'           => __( 'Agentiile siteului', 'cazino' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 20,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'agentie', $args );
+
+}
+add_action( 'init', 'agentie', 0 );
