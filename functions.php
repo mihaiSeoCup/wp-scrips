@@ -74,3 +74,16 @@ function filter_wpseo_breadcrumb_output( $output ) {
          
 // add the filter 
 add_filter( 'wpseo_breadcrumb_output', 'filter_wpseo_breadcrumb_output', 10, 1 ); 
+
+
+
+/*
+* Redirection page redirect
+*/
+add_action('template_redirect', 'redirect_agency', 10);
+function redirect_agency() {
+	// i think wp_redirect() will work too, instead of header()
+	header("Location: ".$_GET['link'].'/');
+	exit;	
+
+}
