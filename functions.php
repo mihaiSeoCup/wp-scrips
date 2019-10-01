@@ -147,3 +147,13 @@ function agentie() {
 
 }
 add_action( 'init', 'agentie', 0 );
+
+/*
+* get all post_types
+*/
+add_action( 'init', 'wpse34410_init', 0, 99 );
+function wpse34410_init() 
+{
+    $types = get_post_types( [], 'objects' );
+   // print_r($types);
+}
