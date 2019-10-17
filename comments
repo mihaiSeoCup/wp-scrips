@@ -1,0 +1,23 @@
+/*
+* change comments fields
+*/
+// You can start editing here -- including this comment!
+		$args = array(
+				    'fields' => apply_filters(
+				        'comment_form_default_fields', array(
+				            'author' =>'<div class="comment-form-author comment-item">' . '<input id="author" placeholder="' . __( 'Nume Exempl','cazino' ) . '" name="author" type="text" value="' .
+				                esc_attr( $commenter['comment_author'] ) . '" size="30" /></div>'
+				                ,
+				            'email'  => '<div class="comment-form-email comment-item">' . '<input id="email" placeholder="' . __( 'Email','cazino' ) . '" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+				                '" size="30" /></div>',
+				            
+				        )
+				    ),
+				    'comment_field' => '<div class="comment-form-comment">' .
+				        '<textarea id="comment" name="comment" placeholder="'. __('Mesaj','cazino').'" cols="45" rows="4" aria-required="true"></textarea>' .
+				        '</div>',
+				    'comment_notes_before' => '<div class="comment-notes">' . __( 'text descriptiv comentarii.','cazino' ) .'</div>',
+				    'title_reply' => '<div class="comments-title-text"> <div>'. __('Parerile, comentariile despre articol?','cazino').'</div></div>'
+				);
+
+		comment_form( $args );
