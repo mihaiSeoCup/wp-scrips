@@ -130,6 +130,7 @@ function agentie() {
 		'description'           => __( 'Agentiile siteului', 'cazino' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'thumbnail' ),
+		'taxonomies' 			=> array('post_tag','category', 'game_category'),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -142,11 +143,40 @@ function agentie() {
 		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
+		'rewrite'				=> array( 'slug' => 'joc')
 	);
 	register_post_type( 'agentie', $args );
 
 }
 add_action( 'init', 'agentie', 0 );
+
+//create a custom taxonomy name it "type" for your posts
+function game_taxonomy_category() {
+ 
+  $labels = array(
+    'name' => _x( 'Categorii', 'taxonomy general name' ),
+    'singular_name' => _x( 'Categorie', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Types' ),
+    'all_items' => __( 'All Game category' ),
+    'parent_item' => __( 'Parent Game category' ),
+    'parent_item_colon' => __( 'Parent Game category:' ),
+    'edit_item' => __( 'Edit Game category' ), 
+    'update_item' => __( 'Update Game category' ),
+    'add_new_item' => __( 'Add New Game category' ),
+    'new_item_name' => __( 'New Game category' ),
+    'menu_name' => __( 'Categorii' ),
+  ); 	
+ 
+  register_taxonomy('game_category',array('game'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'game_category' ),
+  ));
+}
+
 
 /*
 * get all post_types
